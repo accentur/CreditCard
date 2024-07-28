@@ -1,33 +1,29 @@
 <div class="field">
-    <label class="label">{{label}}</label>
-<input [formControl]="control" />
+  <label class="label">{{ label }}</label>
+  <div
+    class="control"
+    [ngClass]="{
+      'is-danger': showErrors()
+    }"
+  >
+    <input class="input" [formControl]="control" />
+  </div>
 
-<ng-container *ngIf=" control.dirty  && control.touched && control.errors">
-
-
-    <div *ngIf="control.errors?.['required']">
-        value is required
-
+  <ng-container *ngIf="showErrors()">
+    <div class="help is-danger" *ngIf="control.errors?.['required']">
+      value is required
     </div>
 
-    <div *ngIf="control.errors?.['minlength']">
-        Input Length : {{control.errors['minlength'].actualLength}} characters
-        Desired Length:{{control.errors['minlength'].requiredLength}} characters
-
+    <div class="help is-danger" *ngIf="control.errors?.['minlength']">
+      Input Length : {{ control.errors["minlength"].actualLength }} characters
+      Desired Length:{{ control.errors["minlength"].requiredLength }} characters
     </div>
 
-    <div *ngIf="control.errors?.['maxlength']">
-        Input Length : {{control.errors['maxlength'].actualLength}} characters
-        Desired Length:{{control.errors['maxlength'].requiredLength}} characters
-    
+    <div class="help is-danger" *ngIf="control.errors?.['maxlength']">
+      Input Length : {{ control.errors["maxlength"].actualLength }} characters
+      Desired Length:{{ control.errors["maxlength"].requiredLength }} characters
     </div>
 
-    <div *ngIf="control.errors?.['pattern']">
-      Invalid format
-    
-    </div>
-
-
-</ng-container>
-
+    <div *ngIf="control.errors?.['pattern']">Invalid format</div>
+  </ng-container>
 </div>
