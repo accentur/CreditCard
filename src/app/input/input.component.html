@@ -10,16 +10,16 @@
   </div>
 
   <ng-container *ngIf="showErrors()">
-    <div class="help is-danger" *ngIf="control.errors?.['required']">
+    <div class="help is-danger" *ngIf="showMessageError('required')">
       value is required
     </div>
 
-    <div class="help is-danger" *ngIf="control.errors?.['minlength']">
+    <div class="help is-danger" *ngIf="showMessageError('minlength')">
       Input Length : {{ control.errors["minlength"].actualLength }} characters
       Desired Length:{{ control.errors["minlength"].requiredLength }} characters
     </div>
 
-    <div class="help is-danger" *ngIf="control.errors?.['maxlength']">
+    <div class="help is-danger" *ngIf="showMessageError('maxlength')">
       Input Length : {{ control.errors["maxlength"].actualLength }} characters
       Desired Length:{{ control.errors["maxlength"].requiredLength }} characters
     </div>

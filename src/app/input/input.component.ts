@@ -18,7 +18,13 @@ export class InputComponent {
 
     return dirty && touched && errors;
 
+
+  }
+
+  showMessageError(input:string) {
     
+    return this.control.errors?.[input];
+
   }
 
 
