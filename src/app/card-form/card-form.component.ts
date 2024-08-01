@@ -12,6 +12,11 @@ import { DateFormControl } from '../date-form-control';
 export class CardFormComponent {
 
 
+onRestClick() {
+  this.cardForm.reset();
+}
+
+
 onSubmit() {
 
   
